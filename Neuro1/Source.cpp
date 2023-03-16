@@ -1,18 +1,15 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
+#define LINE 100
+#define COLUMN 15
 using namespace std;
-
-const int LINE = 100;
-const int COLUMN = 15;
-
 
 
 class Neuron {
 
 public:
-	int omega[COLUMN + 1] = { 3, 3, 2, 8, 3, 3, 3, 4, 3, 4, 3, 4, 3, 3, 1 };
+	int omega[COLUMN + 1] = {  3, 2, 8, 3, 3, 3, 4, 3, 4, 3, 4, 3, 3, 1 };
 	int MAIN_SELECTOIN[LINE][COLUMN + 1] = {
 		{8,1,1,1,1,0,1,1,1,1,1,0,1,1,1,1},
 		{3,1,1,1,0,1,0,1,1,1,0,1,0,1,0,0},
@@ -135,8 +132,6 @@ public:
 	int weight = 0;
 	int temp_mass[COLUMN + 1];
 
-
-
 	void ADD(int omega[], int main_selection[]) {
 		for (int i = 0; i < COLUMN; i++) {
 			if (main_selection[i] == 1) {
@@ -155,20 +150,19 @@ public:
 
 	void OriginOmega()
 	{
-		cout << "Исходная омега: | ";
+		cout << "Начальный вес: ";
 		for (int i = 0; i < COLUMN; i++) {
-			cout << omega[i] << " | ";
+			cout << omega[i] << " ";
 		}
 		cout << endl;
 	}
 
 	void InputTeta()
 	{
-		cout << "Введите Тэту: ";
+		cout << "Ввод теты: ";
 		cin >> teta;
 		cout << endl;
 	}
-
 
 	void AI_TRAIN()
 	{
@@ -192,10 +186,10 @@ public:
 			weight = 0;
 		}
 		if (end_flag == true) {
-			cout << "Нейрон обучился" << endl;
-			cout << "Полученая Омега: | ";
+			cout << "Нейрон обучен" << endl;
+			cout << "Полученный вес: ";
 			for (int i = 0; i < COLUMN; i++) {
-				cout << omega[i] << " | ";
+				cout << omega[i] << " ";
 			}
 			cout << endl;
 		}
@@ -207,7 +201,7 @@ public:
 			for (int i = 1; i < COLUMN + 1; i++) {
 				weight += test_main[point][i] * omega[i];
 			}
-			cout << "Цифра: " << test_main[point][0] << " => Сумма весов: " << weight << endl;
+			cout << "Сумма весов цифры " << test_main[point][0] << ": " << weight << endl;
 			weight = 0;
 		}
 	}
