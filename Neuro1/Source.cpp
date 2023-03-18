@@ -205,10 +205,7 @@ public:
 			weight = 0;
 		}
 	}
-
 };
-
-
 
 int main() 
 {
