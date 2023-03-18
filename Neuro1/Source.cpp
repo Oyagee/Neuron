@@ -214,4 +214,5 @@ int main()
 	Neuro.OriginOmega();
 	Neuro.InputTeta();
 	Neuro.AI_TRAIN();
+
 }
